@@ -1,0 +1,42 @@
+<button (click)="sendData();">Send Data</button>
+<div *ngIf="isValid;then content else other_content">here is ignored</div>    
+<ng-template #content>content here...</ng-template>
+<ng-template #other_content>other content here...</ng-template>
+
+
+<select (change)="getValue($event)">
+        <option value="">Select</option>
+    <option value="one">one</option>
+    <option value="two">two</option>
+    <option value="three">three</option>
+    <option value="another">another</option>
+</select>
+<div [ngSwitch]="switch_expression">
+    <h2 *ngSwitchCase="'one'">One</h2>
+    <h2 *ngSwitchCase="'two'">Two</h2>
+    <h2 *ngSwitchCase="'three'">Three</h2>
+    <div *ngSwitchCase="'another'">
+            <!-- use a ng-container to group multiple root nodes -->
+            <h1>Another</h1>
+            <h2>Anothet 2</h2>
+          </div>
+    <h2 *ngSwitchDefault>Default</h2>
+</div>
+<ul>
+    <li *ngFor="let value of persion; let i=index; let o=odd; let ev=even; let f=first; let l=last; first as isfirst;">
+        {{i+1}}  {{value.name}} -{{o}} -{{ev}} -{{f}} -{{l}} -{{isfirst}}
+    </li>
+</ul>
+
+<h1>Example for Trackby in ngFor</h1>
+<table>
+    <tr *ngFor="let stu of student; trackBy : trackByFn">
+        <td>{{stu.id}}</td>
+        <td>{{stu.name}}</td>
+        <td>{{stu.gender}}</td>
+        <td>{{stu.course}}</td>
+    </tr>
+    <tr>
+        <td colspan="4"><button (click)="addMoreStudent(); ">Add More Student</button></td>
+    </tr>
+</table>
