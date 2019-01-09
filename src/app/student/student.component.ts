@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, NgModule, OnInit, Input, Output, EventEmitter, HostListener, Renderer, ElementRef } from '@angular/core';
 //import { EventEmitter } from 'events';
 
 @Component({
@@ -12,9 +12,11 @@ isValid: boolean;
 public switch_expression: string;
 public persion:any[];
 public student: any[];
+public data: string='Prem';
+public data1: string='Prem1';
 @Output() myoutput: EventEmitter<string> = new EventEmitter();
 outputstring = 'Hi I am your child';
-  constructor() { 
+  constructor(private el: ElementRef, private renderer: Renderer) { 
 
 this.persion = [
   {name: "Prem Kumar"},
@@ -56,12 +58,48 @@ this.student = [
     this.isValid = true;
 
   }
+  changeStyle(coun: string){
+    switch(coun){
+      case 'Male':
+      return 'green';
+      case 'Female':
+      return 'blue';
+
+    }
+  }
   sendData(){
     this.myoutput.emit(this.outputstring);
   }
   getValue(dropdown: any){
 this.switch_expression = dropdown.target.value;
 //alert(this.switch_expression);
+  }
+  getCssClass(flag: string){
+    let cssClass;
+    if(flag === 'nightmode'){
+      cssClass={
+        'one': true,
+        'two': true
+      }
+    }else{
+      cssClass={
+        'four': false,
+        'two': true
+      }
+    }
+    return cssClass;
+  }
+  @HostListener('click') onclick(){
+    alert('click done');
+  }
+  @HostListener('mouseover') onmouseover11(){
+    this.changeBGColor('yellow');
+  }
+  @HostListener('mouseleave') onmouseover1(){
+    this.changeBGColor('blue');
+  }
+  changeBGColor(color: string){
+    this.renderer.setElementStyle(this.el.nativeElement, 'color', color);
   }
 
 }

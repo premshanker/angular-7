@@ -30,13 +30,24 @@
 
 <h1>Example for Trackby in ngFor</h1>
 <table>
-    <tr *ngFor="let stu of student; trackBy : trackByFn">
+        <tr *ngFor="let stu of student; trackBy : trackByFn" [style.background-color]="changeStyle(stu.gender)">
+    <!-- <tr *ngFor="let stu of student; trackBy : trackByFn" [ngStyle]="{'background-color': changeStyle(stu.gender)}"> -->
+            <!--<tr *ngFor="let stu of student; trackBy : trackByFn" [ngStyle]="{'background-color': (stu.gender==='Male')?'red':'green'}">-->
+
         <td>{{stu.id}}</td>
         <td>{{stu.name}}</td>
-        <td>{{stu.gender}}</td>
+        <td >{{stu.gender}}</td>
         <td>{{stu.course}}</td>
     </tr>
     <tr>
         <td colspan="4"><button (click)="addMoreStudent(); ">Add More Student</button></td>
     </tr>
 </table>
+<div [ngClass]="getCssClass('nightmode1')">I am using objec function</div>
+<h1>Example of 2 way data binding</h1>
+<div><input [value]='data' (input)='data=$event.target.value' /></div>
+<div>{{data}}</div>
+
+<h1>Example of 2 way data binding using ngModel</h1>
+<div><input [(ngModel)]='data1'  /></div>
+<div>{{data1}}</div>
