@@ -51,3 +51,25 @@
 <h1>Example of 2 way data binding using ngModel</h1>
 <div><input [(ngModel)]='data1'  /></div>
 <div>{{data1}}</div>
+
+<h1>Example of Pipes</h1>
+<div>Salarry Normal : {{sal}}</div>
+<div>Salarry Pipes : {{sal| currency:'INR':false:'1.2' }}</div>
+<div>DOB Normal : {{DOB}}</div>
+<div>DOB : {{DOB| date: "dd/MM/yyyy"}}</div>
+<div>DOB Medium : {{DOB| date: "medium"}}</div>
+<div>DOB Medium Times : {{DOB| date: "shortTime"}}</div>
+<div>DOB Full : {{DOB| date: "fullDate"|uppercase}}</div>
+
+<h1>JSON Pipes example</h1>
+<div>Users: - {{users|slice:3 | json}}</div>
+
+<h1>Custom Type Pipes example</h1>
+<div>Users: 
+    <ul class="heroes">
+        <li *ngFor="let user of users">
+          <span class="badge">{{user.id}}</span> <span>{{user.name|mypipe:user.gender}}</span>
+          
+        </li>
+      </ul>
+</div>

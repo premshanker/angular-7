@@ -14,9 +14,54 @@ public persion:any[];
 public student: any[];
 public data: string='Prem';
 public data1: string='Prem1';
+public DOB: any;
+public sal: number;
+public title:string = "Midas IT Services";
+public name: string = "Prem Bajpayee";
+public article: string = "Pipes in angular ";
+public position: string = "bloger";
+public users: any;
 @Output() myoutput: EventEmitter<string> = new EventEmitter();
 outputstring = 'Hi I am your child';
   constructor(private el: ElementRef, private renderer: Renderer) { 
+
+this.users = [
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    gender: "male",
+    "email": "Sincere@april.biz"
+},
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    gender: "female",
+    "email": "Shanna@melissa.tv"
+},
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    gender: "male",
+    "email": "Nathan@yesenia.net"
+},
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "username": "Karianne",
+    gender: "female",
+    "email": "Julianne.OConner@kory.org"
+  },
+  {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "username": "Kamren",
+    gender: "male",
+    "email": "Lucio_Hettinger@annie.ca"
+  }
+];
 
 this.persion = [
   {name: "Prem Kumar"},
@@ -56,6 +101,8 @@ this.student = [
   ngOnInit() {
     console.log(this.myinput);
     this.isValid = true;
+    this.DOB = new Date(1947,8,15);
+    this.sal = 345600;
 
   }
   changeStyle(coun: string){
@@ -90,16 +137,16 @@ this.switch_expression = dropdown.target.value;
     return cssClass;
   }
   @HostListener('click') onclick(){
-    alert('click done');
+   // alert('click done');
   }
   @HostListener('mouseover') onmouseover11(){
-    this.changeBGColor('yellow');
+    //this.changeBGColor('yellow');
   }
   @HostListener('mouseleave') onmouseover1(){
-    this.changeBGColor('blue');
+    //this.changeBGColor('blue');
   }
   changeBGColor(color: string){
-    this.renderer.setElementStyle(this.el.nativeElement, 'color', color);
+   // this.renderer.setElementStyle(this.el.nativeElement, 'color', color);
   }
 
 }

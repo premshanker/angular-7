@@ -1,5 +1,7 @@
 import { Component, Input, HostListener, Inject } from '@angular/core';
 import { MyserviceService } from './services/myservice.service';
+import { Router} from '@angular/router';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,7 @@ import { MyserviceService } from './services/myservice.service';
 export class AppComponent {
   title = 'BEST Solution';
   mytitle= "I am in app component";
-  constructor(@Inject(MyserviceService) myservice){
+  constructor(private router: Router,@Inject(MyserviceService) myservice){
     console.log(myservice);
     console.log('hi i am component;');
   }
@@ -20,7 +22,10 @@ export class AppComponent {
 //alert('Hello Prem!');
     }
     getData(value){
-console.log(value);
+    console.log(value);
+    }
+    studentCom(){
+      this.router.navigate(["/student"]);
     }
   
 }

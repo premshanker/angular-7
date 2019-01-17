@@ -8,12 +8,16 @@ import { MyserviceService } from './services/myservice.service';
 import { ParentComponent } from './parent/parent.component';
 import { StudentComponent } from './student/student.component';
 import { StudentportalModule } from './studentportal/studentportal.module';
+import { MypipePipe } from './mypipe.pipe';
+import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParentComponent,
-    StudentComponent
+    StudentComponent,
+    MypipePipe,
+    StudentdetailsComponent
   ],
   imports: [
     BrowserModule,
