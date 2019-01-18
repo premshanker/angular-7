@@ -1,3 +1,76 @@
-<p>
-  studentdetails works!
-</p>
+<div class="container">
+    <h2>Register Form</h2>  
+  <div class="row">
+        
+        <div class="form-bg">
+          <form [formGroup]="signupform" (ngSubmit)="postData(signupform)">
+              <div class="form-group">
+                  
+                  <input type="text" formControlName="fname" placeholder="First Name">
+              </div>
+              <div class="form-group">
+                    
+                    <input type="text" formControlName="lname" placeholder="Last Name">
+              </div>
+              <div class="form-group">
+                    
+                  <input type="text" formControlName="emailid" placeholder="Email">
+            </div>
+            <div class="form-group">
+                    
+                <input type="password" formControlName="password" placeholder="Password">
+          </div>
+          <button type="submit" [disabled]="!signupform.valid" class="btn btn-primary">Post Data</button>
+          </form>
+  
+      <form #regForm="ngForm" (ngSubmit)="Register(regForm)" class="needs-validation" >
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input type="email" name="inputEmail4" required ngModel class="form-control" id="inputEmail4" placeholder="Email" #email="ngModel" >
+           <span class="help-bpx alert" *ngIf="email.touched && !email.valid">Please enter valid email</span>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Password</label>
+              <input type="password" class="form-control" name="inputPassword4" required ngModel id="inputPassword4" placeholder="Password" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" name="inputAddress" ngModel id="inputAddress" placeholder="1234 Main St" required>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input type="text" class="form-control" name="inputAddress2" ngModel id="inputAddress2" placeholder="Apartment, studio, or floor" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input type="text" class="form-control" name="inputCity" ngModel id="inputCity" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">State</label>
+              <select id="inputState" class="form-control" name="inputState" ngModel required>
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input type="text" class="form-control" name="inputZip" ngModel id="inputZip" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="gridCheck" required ngModel id="gridCheck" >
+              <label class="form-check-label" for="gridCheck">
+                Check me out
+              </label>
+            </div>
+          </div>
+          <button type="submit" [disabled]="!regForm.valid" class="btn btn-primary">Sign in</button>
+        </form>
+</div>
+</div>
+</div>
+
