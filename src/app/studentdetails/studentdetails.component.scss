@@ -10,6 +10,8 @@
 .four{
     font-size: 15px;
 }
-input.ng-dirty.ng-invalid {
+input.ng-invalid.ng-touched {
     color: red;
+    
+    border-color: red;
   }
